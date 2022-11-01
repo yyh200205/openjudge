@@ -1,0 +1,41 @@
+#include<stdio.h>
+int main()
+{
+    int n,k;
+    char a[101],a1,a2;
+    scanf("%d",&n);
+    k=1;
+    while(k<=n)
+    {
+        scanf("%s",a);
+        a1=a[0];
+        scanf("%s",a);
+        a2=a[0];
+        if(a1==a2)
+            printf("Tie\n");
+        else
+            if(a1=='R')
+            {
+                if(a2=='S')
+                    printf("Player1\n");
+                else
+                    printf("Player2\n");
+            }
+            else if(a1=='S')
+            {
+                if(a2=='P')
+                    printf("Player1\n");
+                else
+                    printf("Player2\n");
+            }
+            else if(a1=='P')
+            {
+                if(a2=='R')
+                    printf("Player1\n");
+                else
+                    printf("Player2\n");
+            }
+        k++;
+    }
+    return 0;
+}
