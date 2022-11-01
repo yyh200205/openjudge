@@ -1,3 +1,9 @@
+//输入包括N+1行：
+//第一行是一个整数N，表示一共进行了N次游戏。1 <= N <= 100。
+//接下来N行的每一行包括两个字符串，表示游戏参与者Player1，Player2的选择（石头、剪子或者是布）：
+//S1 S2
+//字符串之间以空格隔开S1, S2只可能取值在{ "Rock", "Scissors", "Paper" }（大小写敏感）中。
+//Rock Scissors Paper
 #include<stdio.h>
 int main()
 {
