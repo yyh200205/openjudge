@@ -1,0 +1,153 @@
+//石头剪刀布
+OpenJudge
+边伯贤
+信箱
+账号
+题目ID, 标题, 描述
+
+NOI
+NOI / 1.6编程基础之一维数组
+题目
+排名
+状态
+提问
+查看提交统计提问
+#37149890提交状态
+状态: Accepted
+
+源代码
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+int main()
+{
+	int i = 0;
+	int A = 0;
+	int B = 0;
+	int N, NA, NB;
+	scanf("%d %d %d", &N,&NA,&NB);
+	char arr1[100];//输入的整数
+	char arr2[100];
+    char a1[100];
+    char a2[100];
+    for (i = 0; i < NA; i++)
+	{
+		scanf("%d", &a1[i]);
+	}
+	for (i = 0; i < NB; i++)
+	{
+		scanf("%d", &a2[i]);
+	}
+	for (i = 0; i < N; i++)
+	{
+		arr1[i] = a1[i%NA];
+	}
+	for (i = 0; i < N; i++)
+	{
+		arr2[i] = a2[i % NB];
+	}
+	for (i = 0; i < N; i++)
+	{
+		if ((arr1[i] == 0 && arr2[i] == 2) || (arr1[i] == 2 && arr2[i] == 5) || (arr1[i] == 5 && arr2[i] == 0)) A++;//“A”赢的次数 
+		else if ((arr1[i] == 0 && arr2[i] == 5) || (arr1[i] == 2 && arr2[i] == 0) || (arr1[i] == 5 && arr2[i] == 2)) B++;//“B"赢的次数 
+	}
+	//对出拳的检查
+	// for (i = 0; i < N; i++)
+	// {
+	// 	printf("%d ", arr1[i]);
+	// }
+	// printf("\n");
+	// for (i = 0; i < N; i++)
+	// {
+	// 	printf("%d ", arr2[i]);
+	// }
+	// printf("\n");
+	if (A > B)
+	{
+		printf("A");
+	}
+	else if (A < B)
+	{
+		printf("B");
+	}
+	else
+	{
+		printf("draw\n");
+	}
+    system("pause");
+	return 0;
+}
+// #define _CRT_SECURE_NO_WARNINGS
+// //从键盘读入若干个字符串，对它们按照字母大小的顺序排序
+// //然后把排好序的字符串送到磁盘文件中保存
+// #include<stdio.h>
+// #include<stdlib.h>
+// #include<string.h>
+// int main()
+// {
+//     FILE* fp;
+//     char str[3][10];//str是用来存放字符串的二维数组
+//     char temp[10];//temp是临时数组
+//     int i,j,k,n=3;
+//     printf("Enter strings:\n");
+//     for(i=0;i<n;i++)
+//     gets(str[i]);//输入字符串
+
+//     for(i=0;i<n-1;i++)//用选择法对字符串排序
+//     {
+//         k=i;
+//         for(j=i+1;j<n;j++)
+//             if(strcmp(str[k],str[j])>0)//比较函数，比较之后返回整数
+//             k=j;
+//         if(k!=i)
+//         {
+//             strcpy(temp,str[i]);//复制函数
+//             strcpy(str[i],str[k]);
+//             strcpy(str[k],temp);
+//         }
+//     }
+//     if((fp=fopen("D:\\CC\\string.dat","w"))==NULL)//打开磁盘文件
+//     {
+//         printf("can't open file\n");
+//         exit(0);
+//     }
+//     printf("\nThe new sequence:\n");
+//     for(i=0;i<n;i++)
+//     {
+//         fputs(str[i],fp);//向磁盘文件写一个字符串
+//         fputs("\n",fp);//然后输入一个换行符
+//         printf("%s\n",str[i]);//在屏幕上显示
+//     }
+//     system("pause");
+//     return 0;
+// }
+
+// #include<stdio.h>
+// #include<stdlib.h>
+// int main()
+// {
+// 	FILE* fp;//定义文件指针
+// 	char ch;
+// 	char filename[10] = { 0 };
+// 	printf("请输入所用的文件名:");
+// 	scanf("%s",filename);//输入文件名
+// 	getchar();//用来消化最后输入的回车符
+// 	if ((fp = fopen(filename, "w")) == NULL)//打开输出文件并使fp指向此文件
+// 	{
+// 		printf("cannot open file\n");//如果打开出错就输出打不开
+// 		exit(0);//终止程序
+// 	}
+// 	printf("请输入一个准备存储到磁盘的字符串（以#结束）:");
+// 	ch = getchar();//接受从键盘输入的第一个字符
+// 	while (ch != '#')//当输入'#’时结束
+// 	{
+// 		fputc(ch, fp);//向磁盘文件输出一个字符
+// 		putchar(ch);//将输出的字符显示在屏幕上
+// 		ch = getchar();//再接收从键盘输入的一个字符
+// 	}
+// 	fclose(fp);//关闭文件
+// 	putchar(10);//向屏幕输出一个换行符
+//     system("pause");
+// 	return 0;
+// }
