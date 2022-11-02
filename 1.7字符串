@@ -122,3 +122,25 @@ int main()
 
 	return 0;
 }
+
+//在字符串中替换特定的字符
+#include<stdio.h>
+int main()
+{
+	char ch_arr[80];
+	char ch_1,ch_2;
+	scanf("%s",ch_arr);
+	getchar();
+	scanf("%c", &ch_1);
+	getchar();
+	scanf("%c", &ch_2);
+	char *p;
+	p=ch_arr;
+	while(*p!='\0')
+	{
+		if(*p==ch_1) *p=ch_2;
+		p++;
+	}
+	printf("%s", ch_arr);
+	return 0; 
+} 
