@@ -81,3 +81,44 @@ int main()
 	}
 	return 0;
 }
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+//配对碱基链
+int main()
+{
+	int i = 0;
+	int len = 0;
+	char arr[255];
+	char arr2[255];
+	gets_s(arr);
+	len = strlen(arr);
+	for (i = 0; i < len; i++)
+	{
+		if (arr[i] == 'A')
+		{
+			arr2[i] = 'T';
+		}
+		else if(arr[i] == 'T')
+		{
+			arr2[i] = 'A';
+		}
+		else if (arr[i] == 'G')
+		{
+			arr2[i] = 'C';
+		}
+		else
+		{
+			arr2[i] = 'G';
+		}
+	}
+	for (i = 0; i < len; i++)
+	{
+		printf("%c", arr2[i]);
+	}
+	printf("\n");
+
+	return 0;
+}
