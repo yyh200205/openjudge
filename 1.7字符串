@@ -186,3 +186,39 @@ int main()
 	}
 	return 0;
 }
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+//简单密码
+//对于明文中的每个字符，将它用它字母表中后5位对应的字符来代替，这样就得到了密文。
+int main()
+{
+	int i = 0;
+	int len = 0;
+	char arr[200];
+	char arr2[200];
+	gets_s(arr);
+	len = strlen(arr);
+	for (i = 0; i < len; i++)
+	{
+		if (arr[i] >= 'A' && arr[i] <= 'E')
+		{
+			arr2[i] = arr[i] + 21;
+		}
+		else if (arr[i] >= 'F' && arr[i] <= 'Z')
+		{
+			arr2[i] = arr[i] - 5;
+		}
+		else
+		{
+			arr2[i] = arr[i];
+		}
+	}
+	for (i = 0; i < len; i++)
+	{
+		printf("%c", arr2[i]);
+	}
+	return 0;
+}
