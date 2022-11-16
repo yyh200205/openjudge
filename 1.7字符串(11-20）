@@ -1,3 +1,56 @@
 //潜伏者
 //输入输出样例1说明：原信息中的字母‘A’和‘B’对应相同的密字，输出“Failed”。
 //输入输出样例2说明：字母‘Z’在原信息中没有出现，输出“Failed”。
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+//潜伏者
+//输入输出样例1说明：原信息中的字母‘A’和‘B’对应相同的密字，输出“Failed”。
+//输入输出样例2说明：字母‘Z’在原信息中没有出现，输出“Failed”。
+int main()
+{
+	char arr1[110], arr2[110], arr3[110], ans[30];
+	char book[200];
+	//gets_s(arr1);
+	//gets_s(arr2);
+	//gets_s(arr3);
+	scanf("%s", arr1);
+	scanf("%s", arr2);
+	scanf("%s", arr3);
+	//printf("%s\r\n%s\r\n%s\r\n", arr1, arr2, arr3);
+	memset(ans, 0, sizeof(ans));
+	memset(book, 0, sizeof(book));
+	for (int i = 0; i < strlen(arr1); i++)
+	{
+		if (ans[arr1[i] - 'A' + 1] == 0 || ans[arr1[i] - 'A' + 1] == arr2[i])
+		{
+			if (book[arr2[i]] == 1 && ans[arr1[i] - 'A' + 1] != arr2[i])
+			{
+				//printf("book[%c]", arr2[i]);
+				printf("Failed");
+				return 0;
+			}
+			ans[arr1[i] - 'A' + 1] = arr2[i];
+			book[arr2[i]] = 1;
+		}
+		else
+		{
+			printf("Failed");
+			return 0;
+		}
+	}
+	for (int i = 'A'; i <= 'Z'; i++)
+	{
+		if (ans[i - 'A' + 1] == 0)
+		{
+			printf("Failed");
+			return 0;
+		}
+	}
+	for (int i = 0; i < strlen(arr3); i++)
+	{
+		printf("%c", ans[arr3[i] - 'A' + 1]);
+	}
+	return 0;
+}
